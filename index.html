@@ -47,8 +47,8 @@
 
     <style>
         :root {
-            --primary: #1e73be;
-            --primary-hover: #1a7efb;
+            --primary: #ff1541;
+            --primary-hover: #ff3e61;
             --text-color: #404040;
             --title-color: #111111;
             --bg-dark: #151e2d;
@@ -120,8 +120,10 @@
         }
 
         .bg-dot-grid-card {
-            background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url(assets/dot-grid.png);
-            background-color: #ffffff;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url(assets/dot-grid.png);
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
         }
 
         .bg-dot-grid-dark {
@@ -203,13 +205,19 @@
             text-align: justify;
         }
 
-        #text_block-184-47 br {
-            margin-bottom: 1.2rem;
-            content: "";
-            display: block;
+        #text_block-184-47 p {
+            margin-bottom: 0.4rem;
+        }
+
+        #text_block-184-47 p:last-child {
+            margin-bottom: 0;
         }
 
         /* Section 3: Did You Know Slider */
+        #section-52-47 > .ct-section-inner-wrap {
+            padding: 8rem 2rem; /* Fattened up vertical padding */
+        }
+
         #div_block-53-47 {
             width: 100%;
             max-width: 800px;
@@ -220,7 +228,10 @@
 
         #slider-18-47 {
             width: 100%;
-            background-color: #ffffff;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url(assets/dot-grid.png);
+            background-color: rgba(255, 255, 255, 0.85); /* Translucent background like Purpose block */
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             border-radius: 8px;
             box-shadow: 0 12px 50px rgba(0, 0, 0, 0.1);
             overflow: hidden;
@@ -236,7 +247,7 @@
         .ct-slide {
             flex: 0 0 100%;
             width: 100%;
-            padding: 3rem 2.5rem;
+            padding: 4.5rem 2.5rem;
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -278,23 +289,24 @@
             display: flex;
             justify-content: center;
             gap: 0.5rem;
-            padding: 1rem 0;
-            background: #ffffff;
-            border-top: 1px solid var(--border-color);
+            padding: 1.25rem 0;
+            background: transparent;
+            border-top: none; /* Removed the horizontal rule */
         }
 
         .slider-dot {
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            background-color: #eceeef;
-            border: 2px solid var(--primary);
+            background-color: rgba(255, 21, 65, 0.25); /* Translucent red background */
+            border: 2px solid rgba(255, 21, 65, 0.4); /* Translucent red border */
             cursor: pointer;
             transition: var(--transition);
         }
 
         .slider-dot.active {
-            background-color: var(--primary);
+            background-color: var(--primary); /* Red dots active fill */
+            border-color: var(--primary);
         }
 
         /* Section 4: Our Services */
@@ -400,7 +412,8 @@
         }
 
         .ct-link-button {
-            display: inline-block;
+            display: block;
+            width: 100%; /* Full width button in services */
             text-align: center;
             text-decoration: none;
             background-color: var(--primary);
@@ -412,7 +425,6 @@
             font-weight: 700;
             font-size: 0.9rem;
             transition: var(--transition);
-            align-self: flex-start;
         }
 
         .ct-link-button:hover {
@@ -535,16 +547,17 @@
             font-size: 1rem;
             padding: 0.75rem 1.75rem;
             border-radius: 4px;
-            background-color: #1a7efb;
+            background-color: var(--primary); /* Red submit button */
             color: #ffffff;
             border: none;
             cursor: pointer;
             transition: var(--transition);
-            align-self: flex-start;
+            width: 100%; /* Full width submit button */
+            text-align: center;
         }
 
         .ff-submit-btn:hover {
-            background-color: #0b69eb;
+            background-color: var(--primary-hover);
         }
 
         .form-message {
@@ -657,10 +670,10 @@
                 <div id="div_block-185-47">
                     <div id="div_block-186-47"></div>
                     <div id="text_block-184-47">
-                        Welcome to Connect the Dots Consulting, where our commitment extends beyond conventional support – we position ourselves as your dedicated strategic partner in achieving unparalleled professional success. Our mission centers on empowering individuals along their distinct career path. <br><br>
-                        Embark on an experiential program designed to uncover the essence of who you are, elevate your communication abilities, craft a compelling personal brand, and arm you with the confidence to excel at every opportunity. <br><br>
-                        Immerse yourself in this transformative journey with us, where together, we unlock your potential, propelling you towards a future of professional excellence. <br><br>
-                        Don't miss out on the chance to redefine your success story!
+                        <p>Welcome to Connect the Dots Consulting, where our commitment extends beyond conventional support – we position ourselves as your dedicated strategic partner in achieving unparalleled professional success. Our mission centers on empowering individuals along their distinct career path.</p>
+                        <p>Embark on an experiential program designed to uncover the essence of who you are, elevate your communication abilities, craft a compelling personal brand, and arm you with the confidence to excel at every opportunity.</p>
+                        <p>Immerse yourself in this transformative journey with us, where together, we unlock your potential, propelling you towards a future of professional excellence.</p>
+                        <p>Don't miss out on the chance to redefine your success story!</p>
                     </div>
                 </div>
             </div>
@@ -699,7 +712,7 @@
                         
                     </div>
 
-                    <!-- Slide Navigation -->
+                    <!-- Slide Navigation with Red Dots and no divider line -->
                     <div class="slider-dots" id="slider-dots">
                         <div class="slider-dot active" data-index="0" aria-label="Slide 1"></div>
                         <div class="slider-dot" data-index="1" aria-label="Slide 2"></div>
@@ -885,7 +898,13 @@
             <h1 class="ct-headline text--larger" id="headline-376-47">Contact Us</h1>
             
             <div class="fluentform-wrap" id="-form_widget-400-47">
-                <form id="fluentform_3" class="fluent-form">
+                <!-- Change the action parameter to your Formspree/Web3Forms action when ready! -->
+                <form id="fluentform_3" class="fluent-form" method="POST">
+                    
+                    <!-- Web3Forms Access Key Option (free email collection for static pages) -->
+                    <!-- Get a free access key at https://web3forms.com/ and paste it below: -->
+                    <!-- <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE"> -->
+                    
                     <div class="ff-row">
                         <div class="ff-group">
                             <label for="ff_3_names_first_name_" class="ff-label">First Name</label>
@@ -1125,8 +1144,47 @@
         const submitBtn = document.querySelector('.ff-submit-btn');
 
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+            // If you have configured action="https://api.web3forms.com/submit" or Formspree URL, 
+            // you may want to remove e.preventDefault() to let the form submit natively, 
+            // or perform an AJAX fetch submission here instead to keep the page from reloading.
             
+            // To submit via AJAX (recommended to prevent page reloads):
+            /*
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            
+            fetch(contactForm.action || 'https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(Object.fromEntries(new FormData(contactForm)))
+            })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    responseMsg.className = 'form-message success';
+                    responseMsg.textContent = 'Thank you! Your message has been sent successfully.';
+                    contactForm.reset();
+                } else {
+                    responseMsg.className = 'form-message error';
+                    responseMsg.textContent = json.message || 'Something went wrong. Please try again.';
+                }
+            })
+            .catch(error => {
+                responseMsg.className = 'form-message error';
+                responseMsg.textContent = 'Oops! There was an error submitting your form.';
+            })
+            .then(() => {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit Form';
+            });
+            */
+            
+            // Current simulated submission
+            e.preventDefault();
             submitBtn.disabled = true;
             submitBtn.textContent = 'Sending...';
             
